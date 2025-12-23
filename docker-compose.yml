@@ -1,0 +1,21 @@
+services:
+  postgres:
+    container_name: github-popularity-postgres
+    image: postgres:15
+    command:
+      - "postgres"
+      - "-c"
+      - "config_file=/etc/postgresql.conf"
+    environment:
+      POSTGRES_DB: "github_db"
+      POSTGRES_USER: "user"
+      POSTGRES_PASSWORD: "1234"
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    volumes:
+      - github_db-data:/var/lib/postgresql/data
+      - ./postgresql.conf:/etc/postgresql.conf:ro
+    ports:
+      - "6432:5432"
+
+volumes:
+  github_db-data:
