@@ -13,7 +13,8 @@ class Settings(BaseSettings):
     DB_PASSWORD: str 
     
     BATCH_SIZE: int 
-    REQUEST_DELAY: float 
+    MAX_RATE: int 
+    TIME_PERIOD: int 
     
     model_config = SettingsConfigDict(
         env_file=os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env")
