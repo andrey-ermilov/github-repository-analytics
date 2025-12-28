@@ -69,7 +69,11 @@ class Repository(Base):
     size_kb: Mapped[int] = mapped_column(Integer, nullable=False)
     is_fork: Mapped[bool] = mapped_column(Boolean, nullable=False)
     has_issues: Mapped[bool] = mapped_column(Boolean, nullable=False)
+    has_projects: Mapped[bool] = mapped_column(Boolean, nullable=False)
+    has_downloads: Mapped[bool] = mapped_column(Boolean, nullable=False)
     has_wiki: Mapped[bool] = mapped_column(Boolean, nullable=False)
+    has_pages: Mapped[bool] = mapped_column(Boolean, nullable=False)
+    has_discussions: Mapped[bool] = mapped_column(Boolean, nullable=False)
 
     owner: Mapped[Optional['Owner']] = relationship(
         back_populates='repositories'
@@ -102,7 +106,7 @@ class RepositorySnapshot(Base):
     collected_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), primary_key=True)
     stars: Mapped[int] = mapped_column(Integer, nullable=False)
     forks: Mapped[int] = mapped_column(Integer, nullable=False)
-    watchers: Mapped[int] = mapped_column(Integer, nullable=False)
+    subscribers_count: Mapped[int] = mapped_column(Integer, nullable=False)
     open_issues: Mapped[int] = mapped_column(Integer, nullable=False)
     size_kb: Mapped[int] = mapped_column(Integer, nullable=False)
     pushed_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)

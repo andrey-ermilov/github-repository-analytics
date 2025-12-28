@@ -25,7 +25,7 @@ class RepositorySnapshotSchema(BaseSchema):
     collected_at: datetime = Field(default_factory=datetime.now)
     stars: int = Field(alias='stargazers_count')
     forks: int = Field(alias='forks_count')
-    watchers: int = Field(alias='watchers_count')
+    subscribers_count: int
     open_issues: int = Field(alias='has_issues')
     size_kb: int = Field(alias='size')
     pushed_at: datetime
@@ -47,7 +47,11 @@ class RepositorySchema(BaseSchema):
     size_kb: int = Field(alias='size')
     is_fork: bool = Field(alias='fork')
     has_issues: bool
+    has_projects: bool
+    has_downloads: bool
     has_wiki: bool
+    has_pages:bool
+    has_discussions: bool
 
     @model_validator(mode='before')
     @classmethod

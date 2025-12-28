@@ -73,7 +73,11 @@ class GithubStorage:
         offset = 0
 
         while True:
-            stmt = (select(Repository.full_name).limit(self.batch_size))
+            stmt = (
+                select(Repository.full_name)
+                .join(Repository.tracked_info)
+            ).limit(self.batch_size)
+            
             result = await self.session.execute(stmt)
             batch = result.scalars().all()
             if not batch:
@@ -82,7 +86,10 @@ class GithubStorage:
             offset += self.batch_size
 
     async def get_all_repository_full_names(self) -> List[str]:
-        stmt = select(Repository.full_name)
+        stmt = (
+            select(Repository.full_name)
+            .join(Repository.tracked_info)
+        )
         result = await self.session.execute(stmt)
         return result.scalars().all()
 

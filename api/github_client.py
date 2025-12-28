@@ -10,6 +10,19 @@ from api.data_schemas import *
 import logging
 
 logger = logging.getLogger('httpx')
+logger.setLevel(logging.WARNING)
+
+logger.propagate = False
+
+file_handler = logging.FileHandler('pipeline.log')
+file_handler.setLevel(logging.WARNING)
+
+formatter = logging.Formatter(
+    '%(asctime)s [%(levelname)s] %(name)s: %(message)s'
+)
+file_handler.setFormatter(formatter)
+
+logger.addHandler(file_handler)
 
 class AsyncGithubAPIClient:
     def __init__(self, base_url: str, headers: dict):
