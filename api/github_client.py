@@ -17,12 +17,18 @@ logger.propagate = False
 file_handler = logging.FileHandler('pipeline.log')
 file_handler.setLevel(logging.WARNING)
 
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.WARNING)
+
+
 formatter = logging.Formatter(
     '%(asctime)s [%(levelname)s] %(name)s: %(message)s'
 )
 file_handler.setFormatter(formatter)
+console_handler.setFormatter(formatter)
 
 logger.addHandler(file_handler)
+logger.addHandler(console_handler)
 
 class AsyncGithubAPIClient:
     def __init__(self, base_url: str, headers: dict):
@@ -56,6 +62,8 @@ class AsyncGithubAPIClient:
         
         except httpx.HTTPStatusError as e:
             logger.warning(f'HTTP error for {url}: {e.response.status_code} {e.response.text}')
+            if e.response.status_code == 403:
+                raise
             return None
 
         except httpx.RequestError as e:

@@ -44,12 +44,6 @@ list_init_params = [
         'max_pages': 8,   
     },
     {
-        'name': 'ts_specific',
-        'query': '(language:typescript OR topic:typescript) stars:200..800 pushed:>2024-01-01',
-        'per_page': 50,
-        'max_pages': 4,   
-    },
-    {
         'name': 'go_mid_popular',
         'query': 'language:go stars:100..800 pushed:>2024-01-01',
         'per_page': 50,
