@@ -1,5 +1,11 @@
 # GitHub Repository Growth Analysis
 
+![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-4169E1?logo=postgresql&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-24.0-2496ED?logo=docker&logoColor=white)
+![Power BI](https://img.shields.io/badge/Power_BI-Dashboard-F2C811?logo=powerbi&logoColor=black)
+
+
 ## Overview
 
 This project demonstrates an end-to-end pipeline for collecting, storing, and analyzing GitHub repository data.
@@ -130,18 +136,6 @@ openapi-analytics-pipeline/
     ```python pipeline.py --init```
 7. Run periodic updates
     ```python pipeline.py --update```
-
-## Tech Stack
-
-- Python
-- GitHub REST API
-- PostgreSQL
-- SQLAlchemy
-- Pandas
-- Plotly
-- Jupyter Notebook
-- Docker & Docker Compose
-- Power BI
 
 ## Limitations & Future Improvements
 
