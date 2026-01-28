@@ -105,7 +105,7 @@ Interactive Power BI dashboards for data exploration:
 openapi-analytics-pipeline/
 ├── api/                  # GitHub API client and data schemas
 ├── db/                   # Database models, repositories, migrations
-├── analisys/
+├── analysis/
 │ └── 01_EDA.ipynb        # Exploratory data analysis
 │ └── 02_Advanced.ipynb   # Advanced data analysis
 ├── pipeline.py           # Data collection and snapshot pipeline
